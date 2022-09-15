@@ -6,7 +6,7 @@
 	"name": "Ez Table",
 	"description": "Make markdown table easy",
 	"author": "Ken Sam",
-	"homepage_url": "",
-	"repository_url": "",
+	"homepage_url": "https://github.com/kensam94/joplin-plugin-eztable",
+	"repository_url": "https://github.com/kensam94/joplin-plugin-eztable",
 	"keywords": ["table"]
 }

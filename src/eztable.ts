@@ -213,7 +213,6 @@ module.exports = {
 					var cursorColIndex = getColumnCount(currentLineText.substring(0, cursor.ch));
 					/* Regex to be replaced. Match repeated regexContentText */
 					var regex = new RegExp(`((?:${regexContentText}){${cursorColIndex - 1}})${regexContentText}`);
-					console.log(regex);
 
 					/* Get the table */
 					var [startLine, endLine] = getTableStartEndLine(cm);
@@ -241,22 +240,12 @@ module.exports = {
 				cm.on('cursorActivity', async function (cm1) {
 					var intable = cursorInTable(cm);
 					const cursor = cm.getCursor();
-					console.log(intable);
 					/* the cursor is in the table */
 					if (intable) {
 						cm.setOption("extraKeys", {
 							/* Insert <br> instead of normal newline */
 							Enter: function (cm) {
-								var line = cm.getLine(cursor.line);
-								var substr = line.substring(cursor.ch + 2, line.length - 1);
-								console.log(line, cursor.ch, line.length, substr);
-								console.log("substr", substr);
-								/* check if the cursor located outside table */
-								if (substr.includes("|") && cursor.ch != (line.length)){
-									cm.replaceSelection('<br>');	/* inside table */
-								}else{
-									cm.replaceSelection('\n');	/* outside table */
-								}
+								cm.replaceSelection('<br>');
 							},
 							/* Set cursor at next column of same row */
 							Tab: function (cm) {
