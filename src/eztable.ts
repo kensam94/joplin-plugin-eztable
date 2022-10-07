@@ -63,7 +63,7 @@ module.exports = {
 			 */
 			function ezFormatTable(tableText: string): string{
 				var result = "";
-				var regex2ndLine = new RegExp(/:?(-)+:?/, "g");	/* :---: */
+				var regex2ndLine = new RegExp(/[:-](?:-)+[:-]/, "g");	/* :---: */
 				var columnCount = getColumnCount(tableText.split(/[\r\n]/)[0]);
 				var m, counter = 0; /* counter to select column */
 				var maxWidth = new Array(columnCount).fill(1); /* Store the max width for every column, set default max as 1 to ensure --- for empty column */
