@@ -2,7 +2,7 @@
 	"manifest_version": 1,
 	"id": "kensam.joplin.plugin.eztable",
 	"app_min_version": "1.8",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"name": "Ez Table",
 	"description": "Make markdown table easy",
 	"author": "Ken Sam",

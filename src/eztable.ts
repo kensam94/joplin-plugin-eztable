@@ -245,7 +245,14 @@ module.exports = {
 						cm.setOption("extraKeys", {
 							/* Insert <br> instead of normal newline */
 							Enter: function (cm) {
-								cm.replaceSelection('<br>');
+								var line = cm.getLine(cursor.line);
+								var substr = line.substring(cursor.ch, line.length);
+								/* check if the cursor located outside table */
+								if (substr.includes("|") && cursor.ch != 0){
+									cm.replaceSelection('<br>');	/* inside table */
+								}else{
+									cm.replaceSelection('\n');	/* outside table */
+								}
 							},
 							/* Set cursor at next column of same row */
 							Tab: function (cm) {
